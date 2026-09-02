@@ -1,22 +1,53 @@
-import { Link } from "expo-router";
-import { Text, View, } from "react-native";
+import CustomButton from '@/components/shared/CustomButton';
+import { router } from 'expo-router';
+import { View } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 
-const App = () => {
+const HomeScreen = () => {
   return (
     <SafeAreaView>
-      <View className="mt-6 mx-2.5 bg-zinc-100">
-        <Text className="text-xl font-bold text-zinc-800 ">
-          Inicio
-        </Text>
-
-        <Link className="text-center bg-blue-200 hover:bg-blue-600 hover:text-white rounded-lg py-3 px-4 text-zinc-700" href="./products">
+      <View className="px-10 mt-5">
+        <CustomButton
+          className="mb-2"
+          color="primary"
+          onPress={() => router.push('./products')}
+        >
           Productos
-        </Link>
+        </CustomButton>
+        {/*
+        <CustomButton
+          onPress={() => router.push('/profile')}
+          className="mb-2"
+          color="secondary"
+        >
+          Profile
+        </CustomButton>
 
+        <CustomButton
+          onPress={() => router.push('/settings')}
+          className="mb-2"
+          color="tertiary"
+        >
+          Ajustes
+        </CustomButton>*/}
+
+        {/* {<Link href="/products" asChild>
+          <CustomButton variant="text-only" className="mb-10" color="primary">
+            Productos
+          </CustomButton>
+        </Link>}*/}
+
+        {/* <Link className="mb-5" href="/products">
+          Productos{' '}
+        </Link>
+        <Link className="mb-5" href="/profile">
+          Perfil{' '}
+        </Link>
+        <Link className="mb-5" href="/settings">
+          Ajustes{' '}
+        </Link> */}
       </View>
     </SafeAreaView>
-
-  )
-}
-export default App
+  );
+};
+export default HomeScreen;
